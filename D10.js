@@ -186,19 +186,6 @@ let isTodayMyBirthday = function (date) {
 };
 console.log(isTodayMyBirthday("13/6/2023"));
 
-//   let dataN = new Date(date);
-//   let birthday = today.getDate();
-//   let birthmonth = today.getMonth();
-//   let todayDay = dataN.getDate();
-//   let todayMonth = dataN.getMonth();
-//   if (birthday == todayDay && birthmonth == todayMonth) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
-// console.log(isTodayMyBirthday(`1995-12-16`));
-
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
@@ -207,6 +194,11 @@ console.log(isTodayMyBirthday("13/6/2023"));
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+let deleteProp = function (obj, stringa) {
+  delete obj[stringa];
+  return obj;
+};
+console.log(deleteProp(me, "name"));
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
@@ -246,30 +238,66 @@ console.log(isTodayMyBirthday("13/6/2023"));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+function getContainer() {
+  return document.getElementById("container");
+}
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+function getTD() {
+  return document.getElementsByTagName("td");
+}
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+function printTdText() {
+  const tdElements = document.getElementsByTagName("td");
+  for (let i = 0; i < tdElements.length; i++) {
+    console.log(tdElements[i].textContent);
+  }
+}
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+function addRedBackgroundToLinks() {
+  const links = document.getElementsByTagName("a");
+  for (let i = 0; i < links.length; i++) {
+    links[i].style.backgroundColor = "red";
+  }
+}
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+function addItemToList() {
+  const list = document.getElementById("myList");
+  const newItem = document.createElement("li");
+  newItem.textContent = "New element in the list.";
+  list.appendChild(newItem);
+}
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+function clearList() {
+  const list = document.getElementById("myList");
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+function addClass() {
+  const trElements = document.getElementsByTagName("tr");
+  for (let i = 0; i < trElements.length; i++) {
+    trElements[i].classList.add("test");
+  }
+}
 
 // [EXTRA] JS Avanzato
 
@@ -300,6 +328,17 @@ console.log(isTodayMyBirthday("13/6/2023"));
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+function isItPrime(number) {
+  if (number < 2) {
+    return false;
+  }
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
