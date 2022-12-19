@@ -187,8 +187,9 @@ let isTodayMyBirthday = function (datac, today) {
 };
 console.log(isTodayMyBirthday("17/11/2021", new Date()));
 
-/* Questo array viene usato per gli esercizi. Non modificarlo. */
+// Arrays & Oggetti
 
+// NOTA: l'array "movies" usato in alcuni esercizi è definito qui sotto. Non modificarlo.
 const movies = [
   {
     Title: "The Lord of the Rings: The Fellowship of the Ring",
@@ -299,9 +300,6 @@ const movies = [
     Poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
   },
 ];
-// Arrays & Oggetti
-
-// NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
 
 /* ESERCIZIO 11
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
