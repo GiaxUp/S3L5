@@ -314,35 +314,90 @@ console.log(deleteProp(me, "name"));
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+let newestMovie = function () {
+  let ordinati = movies.sort((corrente, successivo) => {
+    return corrente.Year - successivo.Year;
+  });
+  console.log(ordinati[ordinati.length - 1]);
+};
+newestMovie();
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
+let countMovies = (numOfMovies) => {
+  return numOfMovies.length;
+};
+console.log(countMovies(movies));
 
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
+let newArray = [];
+let onlyTheYears = function (n) {
+  for (let i = 0; i < n.length; i++) {
+    const numINeed = [n[i].Year];
+    console.log(numINeed);
+    newArray.push(numINeed);
+  }
+};
+onlyTheYears(movies);
+console.log(newArray);
 
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
+let onlyInLastMillennium = movies.map((movie) => parseInt(movie.Year));
+for (let i = 0; i < onlyInLastMillennium.length; i++) {
+  const element1 = onlyInLastMillennium[i];
+  if (element1 >= 2000) {
+    console.log(element1);
+  }
+}
 
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
+let sumAllTheYears = movies.map((movie) => parseInt(movie.Year));
+let sumAllTheYearsZero = 0;
+for (let i = 0; i < sumAllTheYears.length; i++) {
+  sumAllTheYearsZero += sumAllTheYears[i];
+}
+console.log(sumAllTheYearsZero);
 
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+let searchByTitle = movies.map((str) => str.Title);
+console.log(searchByTitle);
 
-/* ESERCIZIO 18
+/* ESERCIZIO 18 (da sistemare)
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+let match = [];
+let unmatch = [];
+function searchAndDivide(str) {
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.includes(str)) {
+      match.push(movies[i]);
+    } else unmatch[i] = movies[i];
+  }
+  console.log(match);
+  console.log(unmatch);
+}
+searchAndDivide("Flies");
 
-/* ESERCIZIO 19
+/* ESERCIZIO 19 (da sistemare)
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+function removeIndex(ind) {
+  for (let i = 0; i < movies.length; i++) {
+    if (ind - 1 === i) delete movies[i];
+    else console.log(movies[i]);
+  }
+}
+removeIndex(2);
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
