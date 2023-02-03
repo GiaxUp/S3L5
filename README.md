@@ -1,2 +1,2 @@
 # S3L5
-First JavaScript approach and training @ Epicode friday project.
+More JavaScript training @ Epicode friday project.
